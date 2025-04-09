@@ -1,6 +1,7 @@
 NAME		= push_swap
 
-SRCS		= push_swap.c push_swap_utils.c push_swap_valid.c
+SRCS		= push_swap.c push_swap_utils.c push_swap_valid.c \
+			  push_swap_instructions.c push_swap_ins_utils.c push_swap_butterfly.c
 OBJS		= $(SRCS:.c=.o)
 
 LIBFT_DIR	= libft
@@ -12,7 +13,7 @@ CFLAGS		= -g3 -Wall -Wextra -Werror -I.
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT) $(ft_printf)
 		$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(LIBFT):

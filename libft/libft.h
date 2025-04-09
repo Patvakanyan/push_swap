@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:53:19 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/03/26 17:11:23 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:54:01 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,21 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <unistd.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+int		ft_printf(const char *format, ...);
+int		ft_putnbr(int n, int sum);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		base_number(char *base, unsigned long num);
+
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);

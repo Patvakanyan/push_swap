@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   base_nuber.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 18:21:40 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/06 15:19:11 by apatvaka         ###   ########.fr       */
+/*   Created: 2025/02/03 14:15:31 by alen              #+#    #+#             */
+/*   Updated: 2025/04/06 17:15:30 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+#include "libft.h"
+
+int	base_number(char *base, unsigned long num)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	int	count;
+
+	count = 0;
+	if (num >= ft_strlen(base))
+		count += base_number(base, num / ft_strlen(base));
+	ft_putchar(base[num % ft_strlen(base)]);
+	count++;
+	return (count);
 }
