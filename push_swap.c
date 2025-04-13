@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:19:50 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/09 17:07:02 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/10 19:32:51 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,13 @@ int	ft_add_num(char **arg, int len)
 	if (add_to_list(num, num_dup, len, &list))
 		return (EXIT_FAILURE);
 	// BUTTERFY
+	// t_push_swap	*temp = list;
+	// ft_printf("\n\n\n\n\n");
+	// while (temp)
+	// {
+	// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
+	// 	temp = temp->next;
+	// }
 	butterfly_sort(list, len);
 	free(num);
 	free(num_dup);

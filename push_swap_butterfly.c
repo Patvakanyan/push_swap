@@ -6,11 +6,26 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 15:18:01 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/09 19:10:04 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/11 22:12:54 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	pos_in_list(int index , t_push_swap *list_b)
+{
+	int	i;
+
+	i = 0;
+	while (list_b)
+	{
+		if (list_b->index == index)
+			return (i);
+		++i;
+		list_b = list_b->next;
+	}
+	return (-1);
+}
 
 int	max_index(t_push_swap *list_b)
 {
@@ -34,13 +49,15 @@ int	max_index(t_push_swap *list_b)
 void	sort_max(t_push_swap **list_a, t_push_swap **list_b, int n)
 {
 	int	index;
+	int	pos;
 
 	while (*list_b)
 	{
 		index = max_index(*list_b);
-		if (index < n / 2)
+		pos = pos_in_list(index, *list_b);
+		if (pos < n / 2)
 		{
-			while ((*list_b)->index != index)
+			while ((*list_b)->index != index )
 				rotate(list_b, 0);
 		}
 		else
@@ -59,7 +76,9 @@ void	butterfly_sort(t_push_swap *list_a, int len)
 	int			counter;
 	int			n;
 
-	n = ft_sqrt(25) * 1.38 - 0.38;
+	// ft_printf("\n\n\n\n\n===========%d\n\n\n\n\n\n", len);
+	n = ft_sqrt(len) * 7 / 5;
+	// n = 15;
 	counter = 0;
 	list_b = NULL;
 	while(list_a)
@@ -67,7 +86,8 @@ void	butterfly_sort(t_push_swap *list_a, int len)
 		if (list_a->index <= counter)
 		{
 			push(&list_b, &list_a, 0);
-			rotate(&list_a, 1);
+			rotate(&list_b, 0);
+			++counter;
 		}
 		else if (list_a->index <= (counter + n))
 		{
@@ -77,10 +97,9 @@ void	butterfly_sort(t_push_swap *list_a, int len)
 		else
 			rotate(&list_a, 1);
 	}
-
 	sort_max(&list_a, &list_b, len);
-	// t_push_swap	*temp;
-	// temp = list_a;
+	// ft_printf("\n\n\n\n\n");
+	// t_push_swap	*temp = list_a;
 	// while (temp)
 	// {
 	// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
