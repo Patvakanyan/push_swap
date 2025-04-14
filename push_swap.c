@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:19:50 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/10 19:32:51 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:08:55 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,25 +93,22 @@ int	ft_add_num(char **arg, int len)
 		num[i] = ft_atoi(arg[i]);
 	num_dup = arry_copy(num, len);
 	if (!num_dup)
-	{
-		free(num);
-		return (EXIT_FAILURE);
-	}
+		return (free(num), EXIT_FAILURE);
 	sort_arry(num_dup, len);
 	if (add_to_list(num, num_dup, len, &list))
 		return (EXIT_FAILURE);
-	// BUTTERFY
+	if (len < 6)
+		len_sort(len, &list);
+	else
+		butterfly_sort(list, len);
 	// t_push_swap	*temp = list;
-	// ft_printf("\n\n\n\n\n");
+	// ft_printf(" \n\n\n\n\n");
 	// while (temp)
 	// {
 	// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
 	// 	temp = temp->next;
 	// }
-	butterfly_sort(list, len);
-	free(num);
-	free(num_dup);
-	return (EXIT_SUCCESS);
+	return (free(num), free(num_dup), ft_free_list(list), EXIT_SUCCESS);
 }
 
 char	**join_and_split(int argc, char **argv)
@@ -152,3 +149,11 @@ int main(int argc, char **argv)
 	ft_free_split(nums);
 	return (res);
 }
+// BUTTERFY
+// t_push_swap	*temp = list;
+// ft_printf("\n\n\n\n\n");
+// while (temp)
+// {
+// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
+// 	temp = temp->next;
+// }

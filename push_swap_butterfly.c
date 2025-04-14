@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 15:18:01 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/11 22:12:54 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:08:08 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,7 @@ void	butterfly_sort(t_push_swap *list_a, int len)
 	int			counter;
 	int			n;
 
-	// ft_printf("\n\n\n\n\n===========%d\n\n\n\n\n\n", len);
 	n = ft_sqrt(len) * 7 / 5;
-	// n = 15;
 	counter = 0;
 	list_b = NULL;
 	while(list_a)
@@ -98,15 +96,16 @@ void	butterfly_sort(t_push_swap *list_a, int len)
 			rotate(&list_a, 1);
 	}
 	sort_max(&list_a, &list_b, len);
-	// ft_printf("\n\n\n\n\n");
-	// t_push_swap	*temp = list_a;
-	// while (temp)
-	// {
-	// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
-	// 	temp = temp->next;
-	// }
-	ft_free_list(list_a);
 }
+
+
+// ft_printf("\n\n\n\n\n");
+// t_push_swap	*temp = list_a;
+// while (temp)
+// {
+// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
+// 	temp = temp->next;
+// }
 
 // int	main()
 // {
