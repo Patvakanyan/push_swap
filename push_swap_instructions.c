@@ -6,12 +6,12 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 16:04:45 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/10 19:20:24 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:21:37 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 void	swap(t_push_swap **push_swap, int flag)
 {
 	t_push_swap	*first_lis;
@@ -54,26 +54,23 @@ void	push(t_push_swap **stack_in, t_push_swap **stack_out, int flag)
 	else
 		ft_printf("pb\n");
 }
+
 void	rotate(t_push_swap **rotate, int flag)
 {
-	t_push_swap *first;
-	t_push_swap *second;
-	t_push_swap *last;
+	t_push_swap	*first;
+	t_push_swap	*second;
+	t_push_swap	*last;
 
 	if (!rotate || !*rotate || !(*rotate)->next)
-	return ;
-
+		return ;
 	first = *rotate;
 	second = first->next;
 	last = lstlast(*rotate);
-
 	first->next = NULL;
 	first->prev = last;
 	last->next = first;
-
 	second->prev = NULL;
 	*rotate = second;
-
 	if (flag == 2)
 		return ;
 	if (flag)
@@ -81,19 +78,18 @@ void	rotate(t_push_swap **rotate, int flag)
 	else
 		ft_printf("rb\n");
 }
+
 void	reverse_rotate(t_push_swap **rev_rot, int flag)
 {
-	t_push_swap *head;
-	t_push_swap *last;
-	t_push_swap *new_last;
+	t_push_swap	*head;
+	t_push_swap	*last;
+	t_push_swap	*new_last;
 
 	if (!rev_rot || !*rev_rot || !(*rev_rot)->next)
 		return ;
-
 	head = *rev_rot;
 	last = lstlast(head);
 	new_last = last->prev;
-
 	new_last->next = NULL;
 	last->prev = NULL;
 	last->next = head;
@@ -104,7 +100,7 @@ void	reverse_rotate(t_push_swap **rev_rot, int flag)
 	if (flag)
 		ft_printf("rra\n");
 	else
-		ft_printf("rrb\n"); 
+		ft_printf("rrb\n");
 }
 // int main()
 // {

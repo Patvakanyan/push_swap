@@ -6,12 +6,11 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 19:39:10 by alen              #+#    #+#             */
-/*   Updated: 2025/04/10 18:13:00 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:26:26 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static	int	check_format(char format)
 {

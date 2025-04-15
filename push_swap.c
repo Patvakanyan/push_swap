@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:19:50 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/14 19:08:55 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:15:59 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,6 @@ void	sort_arry(int *arr, int len)
 	}
 }
 
-int	ft_search_index(int *num_dup, int c, int len)
-{
-	int	i;
-
-	i = -1;
-	while (++i < len)
-	{
-		if (num_dup[i] == c)
-			return (i);
-	}
-	return (-1);
-}
-
 int	add_to_list(int *num, int *num_dup, int len, t_push_swap **list)
 {
 	t_push_swap	*stack_a ;
@@ -74,8 +61,7 @@ int	add_to_list(int *num, int *num_dup, int len, t_push_swap **list)
 			head = stack_a;
 		prev = stack_a;
 	}
-	*list = head;
-	return (EXIT_SUCCESS);
+	return (*list = head, EXIT_SUCCESS);
 }
 
 int	ft_add_num(char **arg, int len)
@@ -101,13 +87,6 @@ int	ft_add_num(char **arg, int len)
 		len_sort(len, &list);
 	else
 		butterfly_sort(list, len);
-	// t_push_swap	*temp = list;
-	// ft_printf(" \n\n\n\n\n");
-	// while (temp)
-	// {
-	// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
-	// 	temp = temp->next;
-	// }
 	return (free(num), free(num_dup), ft_free_list(list), EXIT_SUCCESS);
 }
 
@@ -134,7 +113,7 @@ char	**join_and_split(int argc, char **argv)
 	return (nums);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	**nums;
 	int		res;
@@ -143,17 +122,11 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		print_error(nums, "Error\n", EXIT_FAILURE);
 	nums = join_and_split(argc, argv);
-	if (!nums || ft_has_duplicate(nums) || ft_is_valid(nums) || !(*nums))
+	if (!(*nums) || !nums)
+		print_error(nums, "Error\n", EXIT_FAILURE);
+	if (ft_has_duplicate(nums) || ft_is_valid(nums))
 		print_error(nums, "Error\n", EXIT_FAILURE);
 	res = ft_add_num(nums, arry_len(nums));
 	ft_free_split(nums);
 	return (res);
 }
-// BUTTERFY
-// t_push_swap	*temp = list;
-// ft_printf("\n\n\n\n\n");
-// while (temp)
-// {
-// 	ft_printf("data = %d index = %d\n", temp->data, temp->index);
-// 	temp = temp->next;
-// }

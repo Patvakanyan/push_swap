@@ -6,12 +6,11 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:03:48 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/06 17:15:30 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:26:09 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static	int	rec(int n)
 {
@@ -52,5 +51,3 @@ int	ft_putnbr(int n, int sum)
 	}
 	return (sum + rec(n));
 }
-
-

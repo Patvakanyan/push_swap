@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:53:19 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/10 18:13:00 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:23:31 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stddef.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include <unistd.h>
 # include <stdarg.h>
 
@@ -30,7 +29,6 @@ int		ft_putnbr(int n, int sum);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		base_number(char *base, unsigned long num);
-
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -66,6 +64,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	**ft_split(char *s, char c);
+int		ft_strcmp(char *s1, char *s2);
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);

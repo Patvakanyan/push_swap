@@ -6,13 +6,13 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:19:46 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/14 19:48:04 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:10:32 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_two_elements(t_push_swap **stack_a)
+static void	sort_two_elements(t_push_swap **stack_a)
 {
 	t_push_swap	*list_a;
 
@@ -21,16 +21,16 @@ void	sort_two_elements(t_push_swap **stack_a)
 		swap(stack_a, 1);
 }
 
-void	sort_three_elements(t_push_swap **stack_a)
+static void	sort_three_elements(t_push_swap **stack_a)
 {
 	t_push_swap	*list_a;
-	int	index;
-	int	pos;
+	int			index;
+	int			pos;
 
 	list_a = *stack_a;
 	index = max_index(list_a);
 	pos = pos_in_list(index, list_a);
-	if(pos == 2)
+	if (pos == 2)
 		sort_two_elements(stack_a);
 	if (pos == 1)
 	{
@@ -44,7 +44,7 @@ void	sort_three_elements(t_push_swap **stack_a)
 	}
 }
 
-void	sort_four_elements(t_push_swap **stack_a)
+static void	sort_four_elements(t_push_swap **stack_a)
 {
 	int			index;
 	t_push_swap	*list_a;
@@ -53,7 +53,7 @@ void	sort_four_elements(t_push_swap **stack_a)
 	list_b = NULL;
 	list_a = *stack_a;
 	index = max_index(list_a);
-	while((*stack_a)->index != index)
+	while ((*stack_a)->index != index)
 		rotate(stack_a, 1);
 	push(&list_b, stack_a, 0);
 	sort_three_elements(stack_a);
@@ -61,34 +61,33 @@ void	sort_four_elements(t_push_swap **stack_a)
 	rotate(stack_a, 1);
 }
 
-void	sort_five_elements(t_push_swap **stack_a)
+static void	sort_five_elements(t_push_swap **stack_a)
 {
-	t_push_swap	*list_b;
-	t_push_swap	*list_a;
-	int			pos;
+	t_push_swap	*stack_b;
 	int			index;
+	int			pos;
+	int			i;
 
-	list_b = NULL;
-	list_a = *stack_a;
-	index = max_index(list_a);
-	pos = pos_in_list(index, list_a);
-	while(--pos != 2)
+	i = 3;
+	stack_b = NULL;
+	while (--i)
 	{
 		index = max_index(*stack_a);
 		pos = pos_in_list(index, *stack_a);
 		if (pos < 3)
-			while((*stack_a)->index != index)
+			while ((*stack_a)->index != index)
 				rotate(stack_a, 1);
 		else
-			while((*stack_a)->index != index)
+			while ((*stack_a)->index != index)
 				reverse_rotate(stack_a, 1);
-		push(&list_b, stack_a, 0);
+		push(&stack_b, stack_a, 0);
 	}
 	sort_three_elements(stack_a);
-	push(stack_a, &list_b, 1);
-	rotate(stack_a, 1);
-	push(stack_a, &list_b, 1);
-	rotate(stack_a, 1);
+	while (++i < 3)
+	{
+		push(stack_a, &stack_b, 1);
+		rotate(stack_a, 1);
+	}
 }
 
 void	len_sort(int len, t_push_swap **stack_a)

@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:20:52 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/14 19:01:36 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:25:11 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-// #include <stdio.h>
 # include "libft/libft.h"
 
 typedef struct s_push_swap
@@ -27,6 +26,7 @@ typedef struct s_push_swap
 
 }	t_push_swap;
 
+t_push_swap	*lstlast(t_push_swap *lst);
 void		print_error(char **nums, char *str, int code);
 void		ft_free_split(char **str);
 
@@ -48,8 +48,7 @@ void		butterfly_sort(t_push_swap *list_a, int len);
 int			max_index(t_push_swap	*list_b);
 int			ft_sqrt(int len);
 int			ft_add_num(char **arg, int len);
-int			pos_in_list(int index , t_push_swap *list_b);
-
+int			pos_in_list(int index, t_push_swap *list_b);
 void		len_sort(int len, t_push_swap **stack_a);
-t_push_swap	*lstlast(t_push_swap *lst);
+int			ft_search_index(int *num_dup, int c, int len);
 #endif

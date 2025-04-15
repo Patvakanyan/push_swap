@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 17:07:10 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/03/27 17:07:29 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:30:39 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ int	ft_in_limit(char *num)
 	}
 }
 
+int	is_zero(char *nums, int len)
+{
+	if (nums[0] == '0' && len != 1)
+		return (1);
+	return (0);
+}
+
 int	ft_is_valid(char **nums)
 {
 	int	len;
@@ -48,7 +55,9 @@ int	ft_is_valid(char **nums)
 			++j;
 		while (nums[i][j])
 		{
-			if (ft_isdigit(nums[i][j]) == 0)
+			if (!ft_isdigit(nums[i][j]) || is_zero(nums[i], ft_strlen(nums[i])))
+				return (1);
+			if (nums[i][0] == '-' && nums[i][1] == '0')
 				return (1);
 			++j;
 		}
@@ -86,4 +95,17 @@ int	ft_has_duplicate(char **nums)
 		++i;
 	}
 	return (0);
+}
+
+int	ft_search_index(int *num_dup, int c, int len)
+{
+	int	i;
+
+	i = -1;
+	while (++i < len)
+	{
+		if (num_dup[i] == c)
+			return (i);
+	}
+	return (-1);
 }

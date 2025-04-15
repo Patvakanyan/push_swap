@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 19:28:11 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/07 18:11:42 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:27:05 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,13 @@ int	*arry_copy(int *arr, int len)
 		return (NULL);
 	while (++i < len)
 		arr_copy[i] = arr[i];
-	return (arr_copy);
+	i = -1;
+	while (++i < len - 1)
+	{
+		if (arr_copy[i + 1] - arr_copy[i] < 0)
+			return (arr_copy);
+	}
+	return (free(arr_copy), NULL);
 }
 
 int	arry_len(char **nums)

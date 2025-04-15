@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 15:21:22 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/10 18:23:03 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:19:11 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ int	ft_sqrt(int len)
 	i = 0;
 	while (1)
 	{
-		if(i * i >= len)
+		if (i * i >= len)
 		{
-			if(i * i == len)
+			if (i * i == len)
 				return (i);
-			if(i * i < (i - 1) * (i - 1))
+			if (i * i < (i - 1) * (i - 1))
 				return (i);
 			else
 				return (i - 1);
-			}
-			++i;
+		}
+		++i;
 	}
 }
