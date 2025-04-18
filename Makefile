@@ -17,7 +17,7 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 
 CC			= cc
 RM			= rm -rf
-CFLAGS		= -Wall -Wextra -Werror -I.
+CFLAGS		= -Wall -Wextra -Werror -I. -g3
 
 all: $(NAME)
 
@@ -42,7 +42,7 @@ clean:
 
 fclean: clean
 		$(RM) $(NAME)
-		$(RM) $(BONUS_DIR)/$(BONUS_NAME)
+		$(RM) $(BONUS_NAME)
 		make fclean -C $(LIBFT_DIR)
 
 re: fclean all

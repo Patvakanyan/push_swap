@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:04:07 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/18 16:25:52 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:20:26 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_has_duplicate(char **nums)
 			if (ft_strlen(tmp) == ft_strlen(nums[j]))
 			{
 				if (ft_strncmp(tmp, nums[j], ft_strlen(tmp)) == 0)
-					return (1);
+					return (free(tmp), 1);
 			}
 			++j;
 		}

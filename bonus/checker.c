@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:10:50 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/18 16:25:38 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:27:33 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,10 +119,10 @@ int	main(int argc, char **argv)
 	int		res;
 
 	nums = NULL;
-	if (argc < 2)
-		print_error(nums, "Error\n", EXIT_FAILURE);
+	if (argc == 1)
+		return (EXIT_SUCCESS);
 	nums = join_and_split(argc, argv);
-	if (!(*nums) || !nums)
+	if (!(*nums))
 		print_error(nums, "Error\n", EXIT_FAILURE);
 	if (ft_has_duplicate(nums) || ft_is_valid(nums))
 		print_error(nums, "Error\n", EXIT_FAILURE);
