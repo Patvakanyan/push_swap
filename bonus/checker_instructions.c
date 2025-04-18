@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_instructions.c                           :+:      :+:    :+:   */
+/*   checker_instructions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 16:04:45 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/18 14:26:45 by apatvaka         ###   ########.fr       */
+/*   Created: 2025/04/16 17:14:53 by apatvaka          #+#    #+#             */
+/*   Updated: 2025/04/18 16:26:43 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	swap(t_push_swap **push_swap, int flag)
 {

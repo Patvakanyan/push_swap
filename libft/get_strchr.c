@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   get_strchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 16:46:35 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/15 20:13:04 by apatvaka         ###   ########.fr       */
+/*   Created: 2025/04/17 20:13:10 by apatvaka          #+#    #+#             */
+/*   Updated: 2025/04/17 20:13:34 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+char	*get_strchr(char *s, int c)
 {
-	int	i;
+	char	*ret_s;
+	size_t	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
+	ret_s = (char *)s;
+	while (ret_s[i])
+	{
+		if (ret_s[i] == (char)c)
+			return (&ret_s[i]);
+		++i;
+	}
+	if (ret_s[i] == (char)c)
+		return (&ret_s[i]);
+	return (NULL);
 }

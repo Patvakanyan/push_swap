@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_valid.c                                  :+:      :+:    :+:   */
+/*   checker_valid.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/27 17:07:10 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/15 19:37:43 by apatvaka         ###   ########.fr       */
+/*   Created: 2025/04/16 18:04:07 by apatvaka          #+#    #+#             */
+/*   Updated: 2025/04/18 16:25:52 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	ft_in_limit(char *num)
 {
@@ -97,15 +97,18 @@ int	ft_has_duplicate(char **nums)
 	return (0);
 }
 
-int	ft_search_index(int *num_dup, int c, int len)
+int	is_sorted(t_push_swap **stack_a)
 {
-	int	i;
+	t_push_swap	*list;
 
-	i = -1;
-	while (++i < len)
+	if (!get_line(stack_a))
+		return (0);
+	list = *stack_a;
+	while (list->next)
 	{
-		if (num_dup[i] == c)
-			return (i);
+		if (list->data > list->next->data)
+			return (0);
+		list = list->next;
 	}
-	return (-1);
+	return (1);
 }

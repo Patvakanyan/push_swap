@@ -6,7 +6,7 @@
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:53:19 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/15 19:23:31 by apatvaka         ###   ########.fr       */
+/*   Updated: 2025/04/17 20:14:28 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 typedef struct s_list
 {
@@ -24,12 +29,16 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+char	*get_next_line(int fd);
+char	*gnl_strjoin(char *s1, char *s2);
+
 int		ft_printf(const char *format, ...);
 int		ft_putnbr(int n, int sum);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		base_number(char *base, unsigned long num);
 
+char	*get_strchr(char *s, int c);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

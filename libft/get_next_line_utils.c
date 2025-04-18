@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apatvaka <apatvaka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 16:12:03 by apatvaka          #+#    #+#             */
-/*   Updated: 2025/04/17 20:12:00 by apatvaka         ###   ########.fr       */
+/*   Created: 2025/02/11 18:49:39 by apatvaka          #+#    #+#             */
+/*   Updated: 2025/04/16 16:34:05 by apatvaka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_strjoin(char *s1, char *s2)
 {
-	char	*ret_s;
 	size_t	i;
+	size_t	j;
+	char	*str;
 
-	i = 0;
-	ret_s = (char *)s;
-	while (ret_s[i])
+	if (!s1)
 	{
-		if (ret_s[i] == (char)c)
-		{
-			return (&ret_s[i]);
-		}
-		++i;
+		s1 = (char *)malloc(1 * sizeof(char));
+		if (!s1)
+			return (NULL);
+		s1[0] = '\0';
 	}
-	if (ret_s[i] == (char)c)
-		return (&ret_s[i]);
-	return (NULL);
+	if (!s1 || !s2)
+		return (free(s2), NULL);
+	i = -1;
+	j = 0;
+	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (NULL);
+	while (s1[++i])
+		str[i] = s1[i];
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	free(s1);
+	return (str);
 }

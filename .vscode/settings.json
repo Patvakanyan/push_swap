@@ -4,6 +4,7 @@
 		"libft.h": "c",
 		"push_swap.h": "c",
 		"stdlib.h": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"checker.h": "c"
 	}
 }
